@@ -3,7 +3,7 @@
    "routes": [
     {
         "src": "/(.*)",
-        "dest": "/entry.express.tsx"
+        "dest": "/src/entry.express.tsx"
     }
    ]
 }
