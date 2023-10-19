@@ -22,5 +22,5 @@
     }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src", "./*.d.ts", "./*.config.ts", "./*.config.js", "./*.cjs"]
+  "include": ["src", "./*.d.ts", "./*.config.ts", "./*.config.js", "./*.cjs", "./adapters/**/*.ts"]
 }
