@@ -9,7 +9,7 @@
     "sharp"
   ],
   "scripts": {
-    "build": "qwik build",
+    "build": "tsc --incremental --noEmit && vite build -c adapters/express/vite.config.ts && vite build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "vite build -c adapters/express/vite.config.ts",
