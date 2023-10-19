@@ -1,9 +1,17 @@
 {
-   "version": 2,
-   "routes": [
+  "version": 2,
+  "builds": [
     {
-        "src": "/(.*)",
-        "dest": "/src/entry.express.tsx"
+      "src": "package.json",
+      "use": "@vercel/node"
     }
-   ]
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/express.js",
+      "methods": ["GET", "POST"]
+    }
+  ]
 }
+
