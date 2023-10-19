@@ -3,8 +3,13 @@
   "version": 2,
   "routes": [
     {
+      "src": "/server/(.*)",
+      "dest": "/server/$1",
+      "methods": ["GET", "POST"]
+    },
+    {
       "src": "/(.*)",
-      "dest": "server/entry.express",
+      "dest": "/dist/$1",
       "methods": ["GET", "POST"]
     }
   ]
