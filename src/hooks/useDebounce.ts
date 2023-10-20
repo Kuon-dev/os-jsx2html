@@ -9,7 +9,7 @@ export const useDebounce = (inputSig: Signal) => {
     const debounced = setTimeout(() => {
       // 2. Update the signal
       debouncedSig.value = inputSig.value;
-    }, 1000);
+    }, 300);
     cleanup(() => clearTimeout(debounced));
   });
 

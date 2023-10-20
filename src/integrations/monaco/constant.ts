@@ -5,6 +5,8 @@ const Root = () => {
     )
 }
 
+// this code is mandatory otherwise react doesn't know what to render as root
+// you may change the name of the "Root" component
 const render = () => <Root />
 `;
 

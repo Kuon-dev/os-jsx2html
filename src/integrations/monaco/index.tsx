@@ -120,7 +120,7 @@ export default component$((prop: MonacoEditorProps) => {
         // wait for next tick to avoid it being an invalid operation
         setTimeout(() => {
           monacoEditor.executeEdits(model.getValue(), edits, newSelections);
-        }, 0);
+        }, 100);
       }
     });
 
@@ -133,13 +133,8 @@ export default component$((prop: MonacoEditorProps) => {
 
   // mount visible task
   useVisibleTask$(
-    async ({ track }) => {
-      track(() => prop.value);
-      if (hasInitialized.value) {
-        const monacoEditor = store.monacoInstance;
-        if (prop.value !== monacoEditor?.getModel()?.getValue())
-          monacoEditor?.getModel()?.setValue(prop.value ?? "");
-      } else {
+    async ({ track, cleanup }) => {
+      if (hasInitialized.value) return;
         const monaco = await configureMonaco();
         const ts = monaco.languages.typescript;
 
@@ -167,9 +162,9 @@ export default component$((prop: MonacoEditorProps) => {
         editorRef.value!.innerHTML = "";
 
         const monacoEditor = monaco.editor.create(editorRef.value!, {
-          automaticLayout: true,
-          lineDecorationsWidth: 5,
-          lineNumbersMinChars: 3,
+          // automaticLayout: true,
+          // lineDecorationsWidth: 5,
+          // lineNumbersMinChars: 3,
           minimap: { enabled: false },
           roundedSelection: false,
           scrollBeyondLastLine: false,
@@ -177,17 +172,19 @@ export default component$((prop: MonacoEditorProps) => {
           value: content.value,
           language: "typescript",
         });
-        ts.typescriptDefaults.setEagerModelSync(true);
+        // ts.typescriptDefaults.setEagerModelSync(true);
         // Monaco is not serializable, so we can't serialize it as part of SSR
         // We can however instantiate it on the client after the component is visible
         store.monacoInstance = noSerialize(monacoEditor);
 
         // custom vim mode
         // cleanup(() => vimMode.dispose());
+        monacoEditor?.getModel()?.setValue(prop.value ?? "");
         hasInitialized.value = true;
-      }
+      cleanup(() => monacoEditor.dispose())
     },
     { strategy: "document-ready" },
+
   );
 
   return (

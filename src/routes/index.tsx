@@ -11,11 +11,12 @@ import MonacoEditor from "~/integrations/monaco/index";
 import { toast } from "sonner";
 import axios from "axios";
 import { Spinner } from "~/icons/spinner";
+import { defaultReactMonaco } from "~/integrations/monaco/constant";
 
 export default component$(() => {
   // the page that is currently selected
 
-  const codeContent = useSignal<string>("");
+  const codeContent = useSignal<string>(defaultReactMonaco);
   const renderedHTML = useSignal<string>("");
 
   const isProcessing = useSignal<boolean>(false);
@@ -25,6 +26,7 @@ export default component$(() => {
   });
 
   const handleCompare = $(async () => {
+    toast.success("Successfully generated html code")
     isProcessing.value = true;
     try {
       // tansform bable code
@@ -36,6 +38,7 @@ export default component$(() => {
 
       // save react code
       renderedHTML.value = transformToStatic.data;
+      toast.success("Successfully generated html code")
     } catch (e) {
       toast("An error has occured");
     } finally {
@@ -47,6 +50,7 @@ export default component$(() => {
     <>
       <div class="hidden flex-col md:flex">
         <div class="container flex-1 space-y-4 p-8 pt-6">
+          <h2 class="text-3xl font-bold tracking-tight my-4">Transform JSX to HTML</h2>
           <div class="flex items-center justify-between space-y-2">
             <div class="flex items-center space-x-2">
               <SdnButton
