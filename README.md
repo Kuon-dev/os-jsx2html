@@ -1,6 +1,6 @@
 # JSX-to-HTML Converter
 
-###IMPORTANT: 
+### IMPORTANT: 
 Live server will spin down in inactivity due to running in a free instance, some initial lodas will be longer to wait for the server to start up. If the server took too long, I recommend you to refresh it.
 
 ## Table of Contents
