@@ -52,7 +52,7 @@ export default component$((prop: MonacoEditorProps) => {
 
   return (
     <div class="relative">
-      <div ref={editorRef} class="h-[20rem]">
+      <div ref={editorRef} class="lg:h-[40rem] h-64">
         loading
       </div>
     </div>

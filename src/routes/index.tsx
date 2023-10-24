@@ -26,7 +26,6 @@ export default component$(() => {
   });
 
   const handleCompare = $(async () => {
-    toast.success("Successfully generated html code")
     isProcessing.value = true;
     try {
       // tansform bable code
@@ -62,8 +61,8 @@ export default component$(() => {
               </SdnButton>
             </div>
           </div>
-          <div class="flex flex-col gap-20">
-            <div>
+          <div class="flex xl:flex-row flex-col gap-20">
+            <div class="basis-1/2">
               <h2 class="text-3xl font-bold tracking-tight">JSX</h2>
               <div class="my-3 py-2">
                 <MonacoEditor
@@ -74,9 +73,11 @@ export default component$(() => {
                 />
               </div>
             </div>
-            <div>
+            <div class="basis-1/2">
               <h2 class="text-3xl font-bold tracking-tight">Rendered HTML</h2>
-              <HTMLMonacoEditor value={renderedHTML.value} />
+              <div class="my-3 py-2">
+                <HTMLMonacoEditor value={renderedHTML.value} />
+              </div>
             </div>
           </div>
         </div>
