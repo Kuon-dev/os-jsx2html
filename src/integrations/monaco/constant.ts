@@ -1,7 +1,9 @@
 export const defaultReactMonaco = `
+const HelloWorld = () => <div>Hello World</div>
+
 const Root = () => {
     return (
-        <div></div>
+      <HelloWorld />
     )
 }
 
