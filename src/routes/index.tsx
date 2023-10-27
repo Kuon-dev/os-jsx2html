@@ -90,8 +90,44 @@ export const head: DocumentHead = {
   title: "JSX to HTML",
   meta: [
     {
-      name: "JSX2HTML",
-      content: "Transform JSX to HTML",
+      name: "description",
+      content: "Convert JSX to HTML instantly with our free online tool. Paste your JSX code and get the HTML output in real-time.",
+    },
+    {
+      name: "keywords",
+      content: "JSX, HTML, Converter, Online Converter, JSX to HTML, Code Converter",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      property: "og:title",
+      content: "JSX to HTML Converter - Convert JSX Code Online",
+    },
+    {
+      property: "og:description",
+      content: "Convert JSX to HTML instantly with our free online tool. Paste your JSX code and get the HTML output in real-time.",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "JSX to HTML Converter - Convert JSX Code Online",
+    },
+    {
+      name: "twitter:description",
+      content: "Convert JSX to HTML instantly with our free online tool. Paste your JSX code and get the HTML output in real-time.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://www.example.com/image.jpg",
     },
   ],
 };
